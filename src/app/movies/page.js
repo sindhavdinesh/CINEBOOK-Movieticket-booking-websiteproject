@@ -6,14 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faStar, faCalendarAlt, faSort, faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-// Data operations
 import { getMovies, seedDatabase } from "@/data/movieData";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("All");
-  const [sortBy, setSortBy] = useState("rating-desc"); // rating-desc, name-asc, name-desc, year-desc, year-asc
+  const [sortBy, setSortBy] = useState("rating-desc");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -22,18 +21,15 @@ export default function MoviesPage() {
     setMovies(getMovies());
   }, []);
 
-  // Genres list from movies list
   const genres = useMemo(() => {
     const list = new Set();
     movies.forEach(m => list.add(m.genre));
     return ["All", ...Array.from(list)];
   }, [movies]);
 
-  // Filter and sort movies list
   const filteredAndSortedMovies = useMemo(() => {
     let result = [...movies];
 
-    // Search filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -43,12 +39,10 @@ export default function MoviesPage() {
       );
     }
 
-    // Genre filter
     if (selectedGenre !== "All") {
       result = result.filter(m => m.genre === selectedGenre);
     }
 
-    // Sort operations
     result.sort((a, b) => {
       switch (sortBy) {
         case "name-asc":
@@ -69,12 +63,10 @@ export default function MoviesPage() {
     return result;
   }, [movies, searchQuery, selectedGenre, sortBy]);
 
-  // Reset pagination when filter/search changes
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, selectedGenre, sortBy]);
 
-  // Pagination calculation
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentMovies = useMemo(() => {
@@ -96,10 +88,8 @@ export default function MoviesPage() {
         <p className="text-secondary">Search, sort, filter, and discover your next cinematic adventure.</p>
       </div>
 
-      {/* Filter and Search Panel */}
       <div className="glass-panel p-4 mb-5">
         <Row className="g-3 align-items-center">
-          {/* Search box */}
           <Col xs={12} md={5}>
             <Form.Group className="mb-0">
               <InputGroup>
@@ -117,7 +107,6 @@ export default function MoviesPage() {
             </Form.Group>
           </Col>
 
-          {/* Genre select */}
           <Col xs={12} sm={6} md={3}>
             <Form.Select
               value={selectedGenre}
@@ -131,7 +120,6 @@ export default function MoviesPage() {
             </Form.Select>
           </Col>
 
-          {/* Sort selection */}
           <Col xs={12} sm={6} md={4}>
             <InputGroup>
               <InputGroup.Text className="bg-dark bg-opacity-40 text-secondary border-secondary border-opacity-30">
@@ -152,7 +140,6 @@ export default function MoviesPage() {
           </Col>
         </Row>
 
-        {/* Genre fast pills */}
         <div className="d-flex flex-wrap gap-2 mt-4 pt-3 border-top border-secondary border-opacity-10">
           <span className="text-secondary small mt-1.5 me-2">Fast Filter:</span>
           {genres.map((genre) => (
@@ -169,7 +156,6 @@ export default function MoviesPage() {
         </div>
       </div>
 
-      {/* Listing Grid */}
       <div className="mb-4">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h3 className="text-white fw-bold mb-0">Results ({filteredAndSortedMovies.length})</h3>
@@ -234,7 +220,6 @@ export default function MoviesPage() {
         )}
       </div>
 
-      {/* Pagination control */}
       {totalPages > 1 && (
         <div className="d-flex justify-content-center mt-5">
           <Pagination className="glass-panel p-1">

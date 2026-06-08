@@ -10,12 +10,10 @@ import { faFilm, faUser, faSignInAlt, faUserPlus } from "@fortawesome/free-solid
 export default function CineBookNavbar() {
   const pathname = usePathname();
 
-  // Auth modal states
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authMode, setAuthMode] = useState("login"); // "login" | "register"
+  const [authMode, setAuthMode] = useState("login"); 
   const [user, setUser] = useState(null);
 
-  // Form states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -112,7 +110,6 @@ export default function CineBookNavbar() {
         </Navbar>
       </header>
 
-      {/* Login & Register Modal */}
       <Modal show={showAuthModal} onHide={() => setShowAuthModal(false)} centered contentClassName="glass-panel text-white border-0">
         <Modal.Header closeButton closeVariant="white" className="border-secondary border-opacity-20 p-4">
           <Modal.Title className="fw-bold">

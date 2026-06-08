@@ -1,4 +1,4 @@
-// Mock Movie Dataset
+
 const initialMovies = [
   {
     id: "1",
@@ -212,7 +212,6 @@ const initialMovies = [
   }
 ];
 
-// Mock User Booking / Reviewer Accounts Dataset
 const initialBookings = [
   {
     id: "b1",
@@ -266,7 +265,6 @@ const initialBookings = [
   }
 ];
 
-// SessionStorage Keys
 const MOVIES_KEY = "cinebook_movies_db_v8";
 const BOOKINGS_KEY = "cinebook_bookings_db_v8";
 
@@ -274,7 +272,6 @@ export function isBrowser() {
   return typeof window !== "undefined";
 }
 
-// Seeding Function
 export function seedDatabase() {
   if (!isBrowser()) return;
   
@@ -287,7 +284,6 @@ export function seedDatabase() {
   }
 }
 
-// Movie CRUD Operations
 export function getMovies() {
   if (!isBrowser()) return initialMovies;
   seedDatabase();
@@ -334,7 +330,6 @@ export function deleteMovie(id) {
   return true;
 }
 
-// Bookings CRUD Operations
 export function getBookings() {
   if (!isBrowser()) return initialBookings;
   seedDatabase();

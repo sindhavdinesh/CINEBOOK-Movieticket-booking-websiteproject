@@ -16,10 +16,10 @@ import {
 import Link from "next/link";
 
 export default function MovieTable({ movies, onEdit, onDelete }) {
-  // States for Searching, Sorting, Filtering, and Pagination
+  
   const [search, setSearch] = useState("");
   const [sortField, setSortField] = useState("title");
-  const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
+  const [sortOrder, setSortOrder] = useState("asc"); 
   
   const [filterGenre, setFilterGenre] = useState("");
   const [filterLanguage, setFilterLanguage] = useState("");
@@ -27,7 +27,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
-  // Extract unique genres and languages for filters
   const genres = useMemo(() => {
     const allGenres = movies.map(m => m.genre).filter(Boolean);
     return [...new Set(allGenres)];
@@ -38,7 +37,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
     return [...new Set(allLangs)];
   }, [movies]);
 
-  // Handle Header Sorting Click
   const handleSort = (field) => {
     if (sortField === field) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -46,14 +44,12 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
       setSortField(field);
       setSortOrder("asc");
     }
-    setCurrentPage(1); // Reset page on sort
+    setCurrentPage(1); 
   };
 
-  // Filter, Search and Sort Logic
   const processedMovies = useMemo(() => {
     let result = [...movies];
 
-    // 1. Search
     if (search.trim() !== "") {
       const q = search.toLowerCase();
       result = result.filter(
@@ -64,27 +60,22 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
       );
     }
 
-    // 2. Filter by Genre
     if (filterGenre !== "") {
       result = result.filter((m) => m.genre === filterGenre);
     }
 
-    // 3. Filter by Language
     if (filterLanguage !== "") {
       result = result.filter((m) => m.language === filterLanguage);
     }
 
-    // 4. Sort
     result.sort((a, b) => {
       let valA = a[sortField];
       let valB = b[sortField];
 
-      // Handle numerical sort
       if (sortField === "year" || sortField === "rating") {
         return sortOrder === "asc" ? valA - valB : valB - valA;
       }
 
-      // Handle text sort
       valA = String(valA).toLowerCase();
       valB = String(valB).toLowerCase();
       if (valA < valB) return sortOrder === "asc" ? -1 : 1;
@@ -95,7 +86,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
     return result;
   }, [movies, search, sortField, sortOrder, filterGenre, filterLanguage]);
 
-  // Pagination Logic
   const totalItems = processedMovies.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   
@@ -104,14 +94,12 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
     return processedMovies.slice(startIndex, startIndex + itemsPerPage);
   }, [processedMovies, currentPage, itemsPerPage]);
 
-  // Reset pagination if search or filter changes page count
   React.useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
       setCurrentPage(totalPages);
     }
   }, [totalPages, currentPage]);
 
-  // Helper render function for sort icon
   const renderSortIcon = (field) => {
     if (sortField !== field) return <FontAwesomeIcon icon={faSort} className="text-secondary ms-1 small" />;
     return sortOrder === "asc" ? (
@@ -128,8 +116,7 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
           <span>Movie Database Data Table</span>
           <Badge bg="secondary" className="fs-6 px-2 py-1 align-middle">{totalItems} Total</Badge>
         </h3>
-        
-        {/* Page Size Control */}
+
         <div className="d-flex align-items-center gap-2">
           <span className="small text-secondary text-nowrap">Show per page:</span>
           <Form.Select
@@ -148,9 +135,8 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
         </div>
       </div>
 
-      {/* Controls: Search & Filters */}
       <div className="row g-3 mb-4">
-        {/* Search */}
+        
         <div className="col-12 col-md-4">
           <InputGroup>
             <InputGroup.Text className="custom-form-control bg-transparent text-secondary border-end-0">
@@ -169,7 +155,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
           </InputGroup>
         </div>
 
-        {/* Filter Genre */}
         <div className="col-6 col-md-3">
           <InputGroup>
             <InputGroup.Text className="custom-form-control bg-transparent text-secondary border-end-0">
@@ -191,7 +176,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
           </InputGroup>
         </div>
 
-        {/* Filter Language */}
         <div className="col-6 col-md-3">
           <InputGroup>
             <InputGroup.Text className="custom-form-control bg-transparent text-secondary border-end-0">
@@ -213,7 +197,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
           </InputGroup>
         </div>
 
-        {/* Clear Filters */}
         <div className="col-12 col-md-2 d-grid">
           <Button
             variant="outline-secondary"
@@ -231,7 +214,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
         </div>
       </div>
 
-      {/* Table Element */}
       <div className="custom-table-container">
         <Table responsive className="custom-table table-hover border-0 align-middle">
           <thead>
@@ -328,7 +310,6 @@ export default function MovieTable({ movies, onEdit, onDelete }) {
         </Table>
       </div>
 
-      {/* Pagination Controls */}
       {totalPages > 1 && (
         <div className="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-3">
           <span className="small text-secondary">

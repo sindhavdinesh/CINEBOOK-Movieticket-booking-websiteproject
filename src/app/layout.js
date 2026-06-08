@@ -5,7 +5,6 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "./globals.css";
 import CineBookNavbar from "@/components/Navbar";
 
-// Prevent FontAwesome from dynamically adding its CSS since it is imported above
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -27,18 +26,17 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body className="d-flex flex-column min-vh-100">
-        {/* Navigation Header */}
+        
         <CineBookNavbar />
 
-        {/* Main Content */}
         <main className="flex-grow-1 main-content">
           {children}
         </main>
 
-        {/* Footer Section */}
         <footer className="glass-panel mt-auto m-3 p-4 text-center">
           <div className="container">
             <div className="row align-items-center py-3">

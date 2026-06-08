@@ -7,7 +7,7 @@ const GENRES = ["Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi", "Thr
 const LANGUAGES = ["English", "Spanish", "French", "German", "Korean", "Japanese", "Hindi", "Mandarin"];
 
 export default function MovieFormModal({ show, handleClose, onSave, movieToEdit }) {
-  // Controlled form states
+  
   const [title, setTitle] = useState("");
   const [director, setDirector] = useState("");
   const [genre, setGenre] = useState("");
@@ -18,11 +18,9 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
   const [synopsis, setSynopsis] = useState("");
   const [featured, setFeatured] = useState(false);
 
-  // Form Validation State
   const [validated, setValidated] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Reset fields when opening modal in Add vs Edit mode
   useEffect(() => {
     if (movieToEdit) {
       setTitle(movieToEdit.title || "");
@@ -49,7 +47,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
     setValidated(false);
   }, [movieToEdit, show]);
 
-  // Validation logic
   const validateForm = () => {
     const newErrors = {};
     
@@ -57,8 +54,7 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
     if (!director.trim()) newErrors.director = "Director name is required.";
     if (!genre) newErrors.genre = "Please select a genre.";
     if (!language) newErrors.language = "Please select a language.";
-    
-    // Release Year Validation
+
     const parsedYear = parseInt(year);
     const currentYear = new Date().getFullYear();
     if (!year) {
@@ -67,7 +63,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
       newErrors.year = `Year must be between 1888 and ${currentYear + 5}.`;
     }
 
-    // Rating Validation
     const parsedRating = parseFloat(rating);
     if (!rating && rating !== 0) {
       newErrors.rating = "Rating is required.";
@@ -75,7 +70,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
       newErrors.rating = "Rating must be a decimal between 1.0 and 10.0.";
     }
 
-    // Poster URL Validation
     if (!posterUrl.trim()) {
       newErrors.posterUrl = "Poster URL is required.";
     } else {
@@ -86,7 +80,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
       }
     }
 
-    // Synopsis Validation
     if (!synopsis.trim()) {
       newErrors.synopsis = "Synopsis is required.";
     } else if (synopsis.trim().length < 15) {
@@ -97,7 +90,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit Handler
   const handleSubmit = (e) => {
     e.preventDefault();
     setValidated(true);
@@ -138,7 +130,7 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
       <Form noValidate onSubmit={handleSubmit}>
         <Modal.Body className="p-4">
           <Row className="g-3">
-            {/* Title */}
+            
             <Col md={6}>
               <Form.Group controlId="formMovieTitle">
                 <Form.Label className="custom-form-label">Movie Title</Form.Label>
@@ -154,7 +146,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Director */}
             <Col md={6}>
               <Form.Group controlId="formMovieDirector">
                 <Form.Label className="custom-form-label">Director</Form.Label>
@@ -170,7 +161,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Genre */}
             <Col md={6}>
               <Form.Group controlId="formMovieGenre">
                 <Form.Label className="custom-form-label">Genre</Form.Label>
@@ -189,7 +179,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Language */}
             <Col md={6}>
               <Form.Group controlId="formMovieLanguage">
                 <Form.Label className="custom-form-label">Language</Form.Label>
@@ -208,7 +197,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Release Year */}
             <Col md={4}>
               <Form.Group controlId="formMovieYear">
                 <Form.Label className="custom-form-label">Release Year</Form.Label>
@@ -224,7 +212,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Rating */}
             <Col md={4}>
               <Form.Group controlId="formMovieRating">
                 <Form.Label className="custom-form-label">IMDb Rating (1-10)</Form.Label>
@@ -241,7 +228,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Featured */}
             <Col md={4} className="d-flex align-items-end pb-3">
               <Form.Group controlId="formMovieFeatured">
                 <Form.Check
@@ -254,7 +240,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Poster URL */}
             <Col md={12}>
               <Form.Group controlId="formMoviePoster">
                 <Form.Label className="custom-form-label">Poster Image URL</Form.Label>
@@ -270,7 +255,6 @@ export default function MovieFormModal({ show, handleClose, onSave, movieToEdit 
               </Form.Group>
             </Col>
 
-            {/* Synopsis */}
             <Col md={12}>
               <Form.Group controlId="formMovieSynopsis">
                 <Form.Label className="custom-form-label">Synopsis / Description</Form.Label>

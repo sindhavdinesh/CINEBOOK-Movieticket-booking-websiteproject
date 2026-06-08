@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSearchParams, useRouter } from "next/navigation";
 
-// Data utilities
 import { getMovies, addBooking, seedDatabase } from "@/data/movieData";
 
 function TicketBookingContent() {
@@ -23,29 +22,23 @@ function TicketBookingContent() {
   const initialMovieId = searchParams.get("movieId") || "";
   const initialTheatre = searchParams.get("theatre") || "CineBook IMAX 3D";
 
-  // Data states
   const [moviesList, setMoviesList] = useState([]);
-  
-  // Selection states
+
   const [selectedMovieId, setSelectedMovieId] = useState(initialMovieId);
   const [selectedTheatre, setSelectedTheatre] = useState(initialTheatre);
   const [selectedDate, setSelectedDate] = useState("Today");
   const [selectedTime, setSelectedTime] = useState("5:00 PM");
   const [selectedSeats, setSelectedSeats] = useState([]);
-  
-  // Occupied seats state (randomly seeded per showtime)
+
   const [occupiedSeats, setOccupiedSeats] = useState([]);
 
-  // Booking modal/success states
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [lastBookingDetails, setLastBookingDetails] = useState(null);
 
-  // Form states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  // Load movies on mount
   useEffect(() => {
     seedDatabase();
     const list = getMovies();
@@ -55,14 +48,12 @@ function TicketBookingContent() {
     }
   }, [selectedMovieId]);
 
-  // Generate random occupied seats when theatre, movie, time, or date changes
   useEffect(() => {
-    // Seed some occupied seats dynamically to look realistic
+    
     const seats = [];
     const rows = ["A", "B", "C", "D", "E", "F"];
     const cols = [1, 2, 3, 4, 5, 6, 7, 8];
-    
-    // Choose 8-15 random seats to be occupied
+
     const count = 8 + Math.floor(Math.random() * 8);
     for (let i = 0; i < count; i++) {
       const r = rows[Math.floor(Math.random() * rows.length)];
@@ -73,7 +64,7 @@ function TicketBookingContent() {
       }
     }
     setOccupiedSeats(seats);
-    setSelectedSeats([]); // reset selections
+    setSelectedSeats([]); 
   }, [selectedMovieId, selectedTheatre, selectedDate, selectedTime]);
 
   const selectedMovie = useMemo(() => {
@@ -87,7 +78,7 @@ function TicketBookingContent() {
   const columns = [1, 2, 3, 4, 5, 6, 7, 8];
 
   const handleSeatClick = (seatId) => {
-    if (occupiedSeats.includes(seatId)) return; // occupied
+    if (occupiedSeats.includes(seatId)) return; 
 
     if (selectedSeats.includes(seatId)) {
       setSelectedSeats(selectedSeats.filter(s => s !== seatId));
@@ -97,7 +88,7 @@ function TicketBookingContent() {
   };
 
   const getSeatPrice = (seatId) => {
-    // Let Row F be VIP
+    
     return seatId.startsWith("F") ? 20 : 12;
   };
 
@@ -125,7 +116,7 @@ function TicketBookingContent() {
       favoriteGenre: selectedMovie.genre,
       subscribe: true,
       movieInterest: selectedMovie.title,
-      // Additional properties for ticket summary
+      
       theatre: selectedTheatre,
       date: selectedDate,
       time: selectedTime,
@@ -146,8 +137,7 @@ function TicketBookingContent() {
     });
 
     setShowSuccessModal(true);
-    
-    // Clear states
+
     setSelectedSeats([]);
     setName("");
     setEmail("");
@@ -163,9 +153,9 @@ function TicketBookingContent() {
       </div>
 
       <Row className="g-4">
-        {/* Booking Form Layout */}
+        
         <Col xs={12} lg={8}>
-          {/* Movie / Theatre / Date Selection Panel */}
+          
           <div className="glass-panel p-4 mb-4">
             <h4 className="fw-bold mb-4 text-warning">1. Show Details</h4>
             <Row className="g-3 mb-4">
@@ -202,7 +192,6 @@ function TicketBookingContent() {
               </Col>
             </Row>
 
-            {/* Date Slot selection */}
             <div className="mb-4">
               <span className="text-secondary small d-block mb-2 fw-semibold">Select Date</span>
               <div className="d-flex flex-wrap gap-2">
@@ -220,7 +209,6 @@ function TicketBookingContent() {
               </div>
             </div>
 
-            {/* Time Slot selection */}
             <div className="mb-2">
               <span className="text-secondary small d-block mb-2 fw-semibold">Select Showtime</span>
               <div className="d-flex flex-wrap gap-2">
@@ -239,12 +227,10 @@ function TicketBookingContent() {
             </div>
           </div>
 
-          {/* Seat Layout Engine */}
           <div className="glass-panel p-4 mb-4 text-center">
             <h4 className="fw-bold mb-2 text-warning text-md-start">2. Choose Seats</h4>
             <p className="text-secondary small text-md-start mb-4">Rows A-E are Standard ($12). Row F is Premium VIP Lounge seating ($20).</p>
-            
-            {/* Legend */}
+
             <div className="d-flex justify-content-center flex-wrap gap-4 mb-4 pb-3 border-bottom border-secondary border-opacity-10">
               <div className="seat-legend-item">
                 <div className="seat-legend-box bg-secondary opacity-50" />
@@ -264,11 +250,9 @@ function TicketBookingContent() {
               </div>
             </div>
 
-            {/* Screen representation */}
             <div className="cinema-screen" />
             <div className="cinema-screen-text">SCREEN THIS WAY</div>
 
-            {/* Seats Grid */}
             <div className="d-inline-block">
               {rows.map((row) => (
                 <div key={row} className="d-flex align-items-center gap-3 mb-2 justify-content-center">
@@ -303,7 +287,6 @@ function TicketBookingContent() {
           </div>
         </Col>
 
-        {/* Booking Summary Panel */}
         <Col xs={12} lg={4}>
           <div className="glass-panel p-4 h-100 d-flex flex-column justify-content-between">
             <div>
@@ -311,7 +294,7 @@ function TicketBookingContent() {
               
               {selectedMovie ? (
                 <>
-                  {/* Selected Movie details */}
+                  
                   <div className="d-flex gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-10">
                     <img 
                       src={selectedMovie.posterUrl} 
@@ -327,7 +310,6 @@ function TicketBookingContent() {
                     </div>
                   </div>
 
-                  {/* Show Details */}
                   <div className="mb-4">
                     <div className="d-flex justify-content-between mb-2">
                       <span className="text-secondary small">Theatre:</span>
@@ -343,7 +325,6 @@ function TicketBookingContent() {
                     </div>
                   </div>
 
-                  {/* Seat Details */}
                   <div className="mb-4 pb-3 border-bottom border-secondary border-opacity-10">
                     <div className="d-flex justify-content-between mb-2">
                       <span className="text-secondary small">Selected Seats:</span>
@@ -361,7 +342,6 @@ function TicketBookingContent() {
                     </div>
                   </div>
 
-                  {/* Customer Information (Form) */}
                   <Form onSubmit={handleConfirmBooking}>
                     <h5 className="fw-bold mb-3 text-warning">Contact Information</h5>
                     <Form.Group className="mb-2" controlId="bookName">
@@ -398,7 +378,6 @@ function TicketBookingContent() {
                       />
                     </Form.Group>
 
-                    {/* Submit Booking */}
                     <Button 
                       type="submit" 
                       className="w-100 btn-cinema-primary py-3 fw-bold"
@@ -419,7 +398,6 @@ function TicketBookingContent() {
         </Col>
       </Row>
 
-      {/* Success Modal */}
       <Modal 
         show={showSuccessModal} 
         onHide={() => setShowSuccessModal(false)} 

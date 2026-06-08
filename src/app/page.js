@@ -15,7 +15,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-// CRUD operations and seed data
 import { getMovies, getBookings, seedDatabase } from "@/data/movieData";
 
 export default function Home() {
@@ -24,19 +23,16 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Initialize DB on mount
   useEffect(() => {
     seedDatabase();
     setMovies(getMovies());
     setBookings(getBookings());
   }, []);
 
-  // Featured Movies for Hero Carousel
   const featuredMovies = useMemo(() => {
     return movies.filter(m => m.featured);
   }, [movies]);
 
-  // Auto-play interval for custom 3D hero slider
   useEffect(() => {
     if (isHovered || featuredMovies.length <= 1) return;
     
@@ -47,17 +43,14 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [isHovered, featuredMovies.length]);
 
-  // Now Showing Movies (first 4 movies)
   const nowShowing = useMemo(() => {
     return movies.slice(0, 4);
   }, [movies]);
 
-  // Other Featured Movies for Grid (excluding ones shown in hero slider, or just first 4 featured)
   const featuredGrid = useMemo(() => {
     return movies.filter(m => m.featured).slice(0, 4);
   }, [movies]);
 
-  // Calculation of Stats
   const stats = useMemo(() => {
     if (movies.length === 0) {
       return { total: 0, avgRating: 0, topGenre: "N/A", bookingsCount: bookings.length };
@@ -87,7 +80,6 @@ export default function Home() {
     };
   }, [movies, bookings]);
 
-  // Static premium theatres data
   const theatres = [
     {
       id: "t1",
@@ -117,14 +109,12 @@ export default function Home() {
 
   return (
     <div className="homepage-wrapper animate-fade-in">
-      {/* 1. Cinematic Hero Slider (OTT 3D Carousel) */}
       {featuredMovies.length > 0 && (
         <div 
           className="hero-slider-section"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Backdrop Crossfade Images */}
           <div className="hero-bg-container">
             {featuredMovies.map((movie, idx) => (
               <img 
@@ -137,12 +127,9 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Deep cinematic gradient overlay */}
           <div className="hero-overlay-dark"></div>
 
-          {/* Slider Content Wrapper */}
           <div className="hero-content-wrapper">
-            {/* Left Side: Active Movie Info */}
             {featuredMovies.map((movie, idx) => {
               if (idx !== activeIndex) return null;
               return (
@@ -189,7 +176,6 @@ export default function Home() {
               );
             })}
 
-            {/* Right Side: 3D Stack of posters */}
             <div className="hero-3d-side">
               {featuredMovies.map((movie, idx) => {
                 const total = featuredMovies.length;
@@ -222,7 +208,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Navigation Dots at bottom left */}
           <div className="hero-dots-container">
             {featuredMovies.map((_, idx) => (
               <div 
@@ -235,10 +220,8 @@ export default function Home() {
         </div>
       )}
 
-      {/* Subsequent Page Content wrapped in container */}
       <div className="container py-5 px-4 px-md-5">
 
-      {/* 2. Now Showing Section */}
       <section className="mb-5 animate-fade-in">
         <div className="d-flex justify-content-between align-items-end mb-4">
           <div>
@@ -292,7 +275,6 @@ export default function Home() {
         </Row>
       </section>
 
-      {/* 3. Featured Movies Grid Section */}
       <section className="mb-5 animate-fade-in">
         <div className="d-flex justify-content-between align-items-end mb-4">
           <div>
@@ -344,7 +326,6 @@ export default function Home() {
         </Row>
       </section>
 
-      {/* 4. Top Theatres Section */}
       <section className="mb-5 animate-fade-in">
         <div className="mb-4">
           <span className="text-warning text-uppercase tracking-widest fw-bold small d-block mb-1">🗺️ PREMIUM EXPERIENCE</span>
@@ -390,7 +371,6 @@ export default function Home() {
         </Row>
       </section>
 
-      {/* 5. Statistics Section */}
       <section className="py-5 mb-5 rounded-4 glass-panel bg-gradient-to-br from-slate-900 to-slate-800 border-secondary border-opacity-10 animate-fade-in">
         <Container>
           <div className="text-center mb-5">

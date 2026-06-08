@@ -6,7 +6,7 @@ import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 const GENRES = ["Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi", "Thriller", "Fantasy", "Animation"];
 
 export default function BookingFormModal({ show, handleClose, onSave, bookingToEdit, movies }) {
-  // Controlled fields
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +16,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
   const [movieInterest, setMovieInterest] = useState("");
   const [subscribe, setSubscribe] = useState(false);
 
-  // Validation states
   const [validated, setValidated] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -44,7 +43,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
     setValidated(false);
   }, [bookingToEdit, show]);
 
-  // Validation Logic
   const validateForm = () => {
     const newErrors = {};
 
@@ -54,7 +52,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
       newErrors.name = "Name must be at least 2 characters.";
     }
 
-    // Email check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) {
       newErrors.email = "Email address is required.";
@@ -62,14 +59,12 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
       newErrors.email = "Please enter a valid email address.";
     }
 
-    // Password check (only validate length if not mock password when editing)
     if (!password) {
       newErrors.password = "Password is required.";
     } else if (password !== "******" && password.length < 6) {
       newErrors.password = "Password must be at least 6 characters.";
     }
 
-    // Phone check (10 digits)
     const phoneRegex = /^[0-9]{10}$/;
     if (!phone) {
       newErrors.phone = "Phone number is required.";
@@ -128,7 +123,7 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
       <Form noValidate onSubmit={handleSubmit}>
         <Modal.Body className="p-4">
           <Row className="g-3">
-            {/* Name */}
+            
             <Col md={6}>
               <Form.Group controlId="bookingName">
                 <Form.Label className="custom-form-label">Full Name</Form.Label>
@@ -144,7 +139,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Email */}
             <Col md={6}>
               <Form.Group controlId="bookingEmail">
                 <Form.Label className="custom-form-label">Email Address</Form.Label>
@@ -160,7 +154,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Password */}
             <Col md={6}>
               <Form.Group controlId="bookingPassword">
                 <Form.Label className="custom-form-label">Password</Form.Label>
@@ -176,7 +169,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Phone */}
             <Col md={6}>
               <Form.Group controlId="bookingPhone">
                 <Form.Label className="custom-form-label">Phone Number (10 digits)</Form.Label>
@@ -192,7 +184,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Gender (Radio Buttons - Topic 11.3 Gender) */}
             <Col md={6}>
               <Form.Group>
                 <Form.Label className="custom-form-label d-block">Gender</Form.Label>
@@ -231,7 +222,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Favorite Genre (Selection) */}
             <Col md={6}>
               <Form.Group controlId="bookingFavGenre">
                 <Form.Label className="custom-form-label">Favorite Genre</Form.Label>
@@ -250,7 +240,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Movie Interest (Selection linking to the movies database) */}
             <Col md={12}>
               <Form.Group controlId="bookingMovieInterest">
                 <Form.Label className="custom-form-label">Movie of Interest</Form.Label>
@@ -271,7 +260,6 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
               </Form.Group>
             </Col>
 
-            {/* Checkbox (Subscribe to Newsletter) */}
             <Col md={12} className="py-2">
               <Form.Group controlId="bookingSubscribe">
                 <Form.Check

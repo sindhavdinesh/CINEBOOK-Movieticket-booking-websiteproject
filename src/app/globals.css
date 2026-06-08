@@ -1,11 +1,9 @@
-/* ============================================
-   🎬 CinemaGold — Premium Dark Cinema Theme
-   ============================================ */
 
-/* Google Font Import */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
-/* ── Global Variables ── */
+
 :root {
   --cinema-bg: #0f172a;
   --cinema-bg-secondary: #1e293b;
@@ -34,7 +32,7 @@
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Base Reset & Body ── */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -57,7 +55,7 @@ body {
   line-height: 1.6;
 }
 
-/* ── Custom Scrollbar ── */
+
 ::-webkit-scrollbar { width: 7px; }
 ::-webkit-scrollbar-track { background: var(--cinema-bg); }
 ::-webkit-scrollbar-thumb {
@@ -66,15 +64,13 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--cinema-primary); }
 
-/* ── Selection ── */
+
 ::selection {
   background: rgba(245, 197, 24, 0.3);
   color: #fff;
 }
 
-/* ════════════════════════════════════════════
-   GLASSMORPHISM PANELS
-   ════════════════════════════════════════════ */
+
 .glass-panel {
   background: var(--cinema-surface) !important;
   backdrop-filter: var(--glass-blur);
@@ -101,9 +97,7 @@ body {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 197, 24, 0.08);
 }
 
-/* ════════════════════════════════════════════
-   TYPOGRAPHY — ALL WHITE/LIGHT ON DARK
-   ════════════════════════════════════════════ */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', 'Inter', sans-serif !important;
   font-weight: 700;
@@ -129,7 +123,7 @@ p, span, div, li, td, th, label, a {
   background-clip: text !important;
 }
 
-/* Force text colors for Bootstrap text utils */
+
 .text-white { color: #ffffff !important; }
 .text-light { color: #d1d5db !important; }
 .text-secondary { color: var(--cinema-text-secondary) !important; }
@@ -140,14 +134,12 @@ p, span, div, li, td, th, label, a {
 .text-warning { color: #fbbf24 !important; }
 .fw-extrabold { font-weight: 800 !important; }
 
-/* ════════════════════════════════════════════
-   NAVBAR
-   ════════════════════════════════════════════ */
+
 .navbar {
   background: transparent !important;
 }
 
-/* Site Header */
+
 .site-header {
   position: fixed;
   top: 0;
@@ -156,7 +148,7 @@ p, span, div, li, td, th, label, a {
   width: 100%;
   height: 80px;
   z-index: 1100;
-  background: #090d16 !important; /* Solid dark premium background */
+  background: #090d16 !important; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   margin: 0 !important;
@@ -166,7 +158,7 @@ p, span, div, li, td, th, label, a {
 }
 
 .main-content {
-  padding-top: 80px; /* Push all page content below the fixed header */
+  padding-top: 80px; 
 }
 
 .navbar-brand span {
@@ -205,11 +197,9 @@ p, span, div, li, td, th, label, a {
   width: calc(100% - 28px);
 }
 
-/* ════════════════════════════════════════════
-   HERO BANNER / CAROUSEL
-   ════════════════════════════════════════════ */
+
 .hero-banner {
-  height: 88vh; /* Widescreen cinematic display height */
+  height: 88vh; 
   position: relative;
   overflow: hidden;
   display: flex;
@@ -217,7 +207,7 @@ p, span, div, li, td, th, label, a {
   background-color: #0b0f19;
 }
 
-/* Widescreen backdrop cover image filling container edge-to-edge */
+
 .hero-backdrop-image {
   position: absolute;
   top: 0;
@@ -230,7 +220,7 @@ p, span, div, li, td, th, label, a {
   pointer-events: none;
 }
 
-/* Widescreen dark gradient overlay for text readability */
+
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -262,7 +252,7 @@ p, span, div, li, td, th, label, a {
   color: rgba(255,255,255,0.85) !important;
 }
 
-/* Carousel indicators */
+
 .carousel-indicators button {
   background-color: rgba(255,255,255,0.4) !important;
   border: none !important;
@@ -282,9 +272,7 @@ p, span, div, li, td, th, label, a {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
 }
 
-/* ════════════════════════════════════════════
-   STAT CARDS
-   ════════════════════════════════════════════ */
+
 .stat-card {
   padding: 24px 20px;
   text-align: center;
@@ -319,9 +307,7 @@ p, span, div, li, td, th, label, a {
   font-weight: 500;
 }
 
-/* ════════════════════════════════════════════
-   BADGE STYLES
-   ════════════════════════════════════════════ */
+
 .badge-genre {
   background: rgba(139, 92, 246, 0.15);
   color: #c4b5fd !important;
@@ -359,9 +345,7 @@ p, span, div, li, td, th, label, a {
   gap: 4px;
 }
 
-/* ════════════════════════════════════════════
-   BUTTONS — Premium Cinema Style
-   ════════════════════════════════════════════ */
+
 .btn-cinema-primary {
   background: linear-gradient(135deg, var(--cinema-primary) 0%, #b80710 100%) !important;
   border: none !important;
@@ -414,9 +398,7 @@ p, span, div, li, td, th, label, a {
   color: #0a0a0a !important;
 }
 
-/* ════════════════════════════════════════════
-   CUSTOM TABLE — Full Dark Theme Fix
-   ════════════════════════════════════════════ */
+
 .custom-table-container {
   overflow-x: auto;
   border-radius: var(--radius-md);
@@ -463,7 +445,7 @@ p, span, div, li, td, th, label, a {
   color: #ffffff !important;
 }
 
-/* Bootstrap table overrides — kill ALL dark defaults */
+
 .table { --bs-table-bg: transparent; }
 .table > :not(caption) > * > * {
   background-color: transparent !important;
@@ -475,9 +457,7 @@ p, span, div, li, td, th, label, a {
   color: #ffffff !important;
 }
 
-/* ════════════════════════════════════════════
-   FORM CONTROLS — Dark Theme
-   ════════════════════════════════════════════ */
+
 .custom-form-control,
 .form-control,
 .form-select {
@@ -504,7 +484,7 @@ p, span, div, li, td, th, label, a {
   opacity: 1 !important;
 }
 
-/* Select / Dropdown arrows — white on dark */
+
 .form-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
   background-repeat: no-repeat !important;
@@ -512,7 +492,7 @@ p, span, div, li, td, th, label, a {
   background-size: 16px 12px !important;
 }
 
-/* Select dropdown options (native) */
+
 .form-select option,
 select option {
   background-color: #0f1624 !important;
@@ -528,7 +508,7 @@ select option {
   letter-spacing: 0.01em;
 }
 
-/* Checkbox and Radio — VISIBLE on dark */
+
 .form-check-input {
   background-color: rgba(10, 15, 25, 0.8) !important;
   border: 2px solid rgba(255, 255, 255, 0.2) !important;
@@ -551,14 +531,14 @@ select option {
   font-weight: 500;
 }
 
-/* Input Group text */
+
 .input-group-text {
   background-color: rgba(10, 15, 25, 0.7) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: var(--cinema-text-secondary) !important;
 }
 
-/* Form validation */
+
 .invalid-feedback {
   color: #f87171 !important;
   font-size: 0.82rem;
@@ -569,9 +549,7 @@ select option {
   border-color: #f87171 !important;
 }
 
-/* ════════════════════════════════════════════
-   MODALS — Full Dark Theme
-   ════════════════════════════════════════════ */
+
 .modal-content {
   background: linear-gradient(180deg, #0f1624 0%, #0b1018 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -615,9 +593,7 @@ select option {
   color: var(--cinema-primary) !important;
 }
 
-/* ════════════════════════════════════════════
-   PAGINATION — Dark Theme
-   ════════════════════════════════════════════ */
+
 .pagination {
   --bs-pagination-bg: transparent;
   --bs-pagination-border-color: rgba(255, 255, 255, 0.1);
@@ -667,9 +643,7 @@ select option {
   opacity: 0.6;
 }
 
-/* ════════════════════════════════════════════
-   BOOTSTRAP BADGE OVERRIDES
-   ════════════════════════════════════════════ */
+
 .badge.bg-secondary {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: var(--cinema-text-main) !important;
@@ -691,9 +665,7 @@ select option {
   color: #67e8f9 !important;
 }
 
-/* ════════════════════════════════════════════
-   BOOTSTRAP BUTTON OVERRIDES (outline)
-   ════════════════════════════════════════════ */
+
 .btn-outline-light {
   color: var(--cinema-text-main) !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
@@ -751,9 +723,7 @@ select option {
   color: var(--cinema-text-main) !important;
 }
 
-/* ════════════════════════════════════════════
-   CARD STYLES — Dark Overrides
-   ════════════════════════════════════════════ */
+
 .card {
   --bs-card-bg: transparent;
   --bs-card-border-color: transparent;
@@ -772,9 +742,7 @@ select option {
   color: var(--cinema-text-main) !important;
 }
 
-/* ════════════════════════════════════════════
-   MOVIE DETAIL PAGE
-   ════════════════════════════════════════════ */
+
 .detail-poster-wrapper {
   position: relative;
   border-radius: var(--radius-lg);
@@ -818,9 +786,7 @@ select option {
   color: #ffffff !important;
 }
 
-/* ════════════════════════════════════════════
-   ANIMATIONS
-   ════════════════════════════════════════════ */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
@@ -845,7 +811,7 @@ select option {
   animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Staggered children animation */
+
 .animate-fade-in > .col:nth-child(1),
 .animate-fade-in > div:nth-child(1) { animation-delay: 0s; }
 .animate-fade-in > .col:nth-child(2),
@@ -855,21 +821,19 @@ select option {
 .animate-fade-in > .col:nth-child(4),
 .animate-fade-in > div:nth-child(4) { animation-delay: 0.15s; }
 
-/* ════════════════════════════════════════════
-   MISC BOOTSTRAP DARK OVERRIDES
-   ════════════════════════════════════════════ */
 
-/* Accordion / Alerts / Breadcrumbs */
+
+
 .alert { color: var(--cinema-text-main) !important; }
 
-/* Focus outlines */
+
 .btn:focus-visible,
 .form-control:focus-visible {
   outline: 2px solid rgba(245, 197, 24, 0.5);
   outline-offset: 2px;
 }
 
-/* Links */
+
 a {
   color: var(--cinema-accent);
   text-decoration: none;
@@ -880,12 +844,12 @@ a:hover {
   color: #ff8c00;
 }
 
-/* Container fluid fix */
+
 .container, .container-fluid {
   color: var(--cinema-text-main);
 }
 
-/* Background opacity helper */
+
 .bg-dark {
   background-color: rgba(7, 9, 15, 0.85) !important;
 }
@@ -894,7 +858,7 @@ a:hover {
   --bs-bg-opacity: 0.75;
 }
 
-/* ButtonGroup glass */
+
 .btn-group .btn {
   color: var(--cinema-text-secondary) !important;
 }
@@ -903,9 +867,7 @@ a:hover {
   color: #ffffff !important;
 }
 
-/* ════════════════════════════════════════════
-   RESPONSIVE TWEAKS
-   ════════════════════════════════════════════ */
+
 @media (max-width: 992px) {
   .hero-banner {
     height: 550px;
@@ -966,9 +928,7 @@ a:hover {
   }
 }
 
-/* ════════════════════════════════════════════
-   UTILITY CLASSES
-   ════════════════════════════════════════════ */
+
 .tracking-wider { letter-spacing: 0.05em; }
 .line-clamp-3 {
   display: -webkit-box;
@@ -977,7 +937,7 @@ a:hover {
   overflow: hidden;
 }
 
-/* Smooth image transitions */
+
 img {
   transition: transform var(--transition-smooth);
 }
@@ -986,7 +946,7 @@ img {
   transform: scale(1.06);
 }
 
-/* Footer text */
+
 footer p, footer span, footer div {
   color: var(--cinema-text-secondary) !important;
 }
@@ -998,19 +958,16 @@ footer .text-accent-gradient {
   background-clip: text !important;
 }
 
-/* ════════════════════════════════════════════
-   🎬 HERO SLIDER — Glassmorphism Arrows
-   Compact, elegant, sitting on the slider edge
-   ════════════════════════════════════════════ */
 
-/* Wrapper — no extra padding, arrows stay inside */
+
+
 .hero-slider-wrapper {
   position: relative;
   padding: 0;
   overflow: visible !important;
 }
 
-/* Inner container — clips the slides with rounded corners */
+
 .hero-slider-inner {
   position: relative;
   overflow: hidden;
@@ -1018,7 +975,7 @@ footer .text-accent-gradient {
   box-shadow: var(--glass-shadow);
 }
 
-/* ── The Glass Arrow Button — compact & elegant ── */
+
 .hero-arrow {
   display: flex;
   align-items: center;
@@ -1027,23 +984,23 @@ footer .text-accent-gradient {
   height: 44px;
   border-radius: 50%;
 
-  /* Glassmorphism */
+  
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
 
-  /* Subtle border */
+  
   border: 1px solid rgba(255, 255, 255, 0.15);
 
-  /* Soft shadow */
+  
   box-shadow:
     0 2px 12px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  /* Icon color */
+  
   color: rgba(255, 255, 255, 0.85);
 
-  /* Smooth transitions */
+  
   transition:
     transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
     background 0.25s ease,
@@ -1052,7 +1009,7 @@ footer .text-accent-gradient {
   cursor: pointer;
 }
 
-/* Hover — gentle enlarge + glow */
+
 .hero-arrow:hover {
   transform: scale(1.12);
   background: rgba(0, 0, 0, 0.6);
@@ -1064,13 +1021,13 @@ footer .text-accent-gradient {
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Active press */
+
 .hero-arrow:active {
   transform: scale(1.0);
   transition-duration: 0.08s;
 }
 
-/* SVG icon */
+
 .hero-arrow svg {
   display: block;
   width: 18px;
@@ -1084,7 +1041,7 @@ footer .text-accent-gradient {
   filter: drop-shadow(0 0 4px rgba(245, 197, 24, 0.2));
 }
 
-/* Nudge on hover */
+
 .hero-arrow-prev:hover svg {
   transform: translateX(-1.5px);
 }
@@ -1093,9 +1050,9 @@ footer .text-accent-gradient {
   transform: translateX(1.5px);
 }
 
-/* ── Bootstrap Carousel Control Override ── */
 
-/* Prev — inside the slider, near left edge */
+
+
 .hero-slider-wrapper .carousel-control-prev {
   position: absolute;
   left: 12px;
@@ -1112,7 +1069,7 @@ footer .text-accent-gradient {
   background-image: none !important;
 }
 
-/* Next — inside the slider, near right edge */
+
 .hero-slider-wrapper .carousel-control-next {
   position: absolute;
   right: 12px;
@@ -1129,7 +1086,7 @@ footer .text-accent-gradient {
   background-image: none !important;
 }
 
-/* Hide Bootstrap default icons */
+
 .hero-slider-wrapper .carousel-control-prev-icon,
 .hero-slider-wrapper .carousel-control-next-icon {
   display: none !important;
@@ -1149,13 +1106,13 @@ footer .text-accent-gradient {
   clip: rect(0, 0, 0, 0);
 }
 
-/* Indicators */
+
 .hero-slider-wrapper .carousel-indicators {
   z-index: 5;
   margin-bottom: 18px;
 }
 
-/* Subtle idle breathing glow */
+
 @keyframes arrowPulse {
   0%, 100% { box-shadow: 0 2px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06); }
   50%      { box-shadow: 0 2px 12px rgba(0,0,0,0.4), 0 0 10px rgba(245,197,24,0.06), inset 0 1px 0 rgba(255,255,255,0.08); }
@@ -1169,9 +1126,7 @@ footer .text-accent-gradient {
   animation: none;
 }
 
-/* ════════════════════════════════════════════
-   📱 RESPONSIVE — Hero Slider Arrows
-   ════════════════════════════════════════════ */
+
 
 @media (max-width: 992px) {
   .hero-arrow {
@@ -1247,9 +1202,7 @@ footer .text-accent-gradient {
   }
 }
 
-/* ════════════════════════════════════════════
-   💺 SEAT BOOKING SYSTEM
-   ════════════════════════════════════════════ */
+
 .seat-booking-grid {
   display: grid;
   grid-template-columns: repeat(8, minmax(30px, 45px));
@@ -1333,11 +1286,9 @@ footer .text-accent-gradient {
 }
 
 
-/* ==========================================================================
-   🎬 PREMIUM OTT HERO CAROUSEL REDESIGN (Netflix / Disney+ inspired)
-   ========================================================================== */
 
-/* 1. Root Hero Container */
+
+
 .hero-slider-section {
   position: relative;
   width: 100%;
@@ -1349,7 +1300,7 @@ footer .text-accent-gradient {
   background-color: #040714;
 }
 
-/* 2. Immersive Backdrop Image Crossfade Stack */
+
 .hero-bg-container {
   position: absolute;
   top: 0;
@@ -1366,23 +1317,23 @@ footer .text-accent-gradient {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center !important; /* Center the vertical posters to show characters */
+  object-position: center center !important; 
   opacity: 0;
   z-index: 0;
-  filter: blur(6px); /* Cinematic blur effect! */
+  filter: blur(6px); 
   transition: opacity 0.4s ease-in-out, transform 3s ease-in-out;
-  transform: scale(1.04); /* Scaled up to hide blurred edge bleed */
+  transform: scale(1.04); 
   pointer-events: none;
 }
 
-/* Subtle smooth zoom-in Ken Burns effect on active backdrop */
+
 .hero-bg-backdrop.active {
   opacity: 1;
   z-index: 1;
-  transform: scale(1.07); /* Subtle zoom to avoid cropping and stretching */
+  transform: scale(1.07); 
 }
 
-/* 3. Deep Cinematic Dark Double Overlay */
+
 .hero-overlay-dark {
   position: absolute;
   top: 0;
@@ -1392,25 +1343,25 @@ footer .text-accent-gradient {
   z-index: 2;
   pointer-events: none;
   background: 
-    /* Top-down dark overlay shadow for navbar contrast */
+    
     linear-gradient(to bottom, 
       rgba(4, 7, 20, 0.95) 0%, 
       rgba(4, 7, 20, 0.5) 18%, 
       rgba(4, 7, 20, 0) 40%),
-    /* Horizontal gradient from deep dark-blue left, transparent right */
+    
     linear-gradient(to right, 
       rgba(9, 11, 20, 0.98) 0%, 
       rgba(9, 11, 20, 0.8) 30%, 
       rgba(9, 11, 20, 0.25) 60%, 
       rgba(9, 11, 20, 0) 85%),
-    /* Vertical gradient from deep dark bottom, transparent top */
+    
     linear-gradient(to top, 
       rgba(4, 7, 20, 1) 0%, 
       rgba(4, 7, 20, 0.6) 20%, 
       rgba(4, 7, 20, 0) 50%);
 }
 
-/* 4. Content Shell (Overlay Grid) */
+
 .hero-content-wrapper {
   position: relative;
   z-index: 3;
@@ -1424,7 +1375,7 @@ footer .text-accent-gradient {
   height: 100%;
 }
 
-/* 5. Left Text Side */
+
 .hero-text-side {
   max-width: 650px;
   display: flex;
@@ -1465,7 +1416,7 @@ footer .text-accent-gradient {
   font-weight: 400;
 }
 
-/* Premium Button Overrides */
+
 .btn-cinema-glow {
   background: linear-gradient(135deg, #fbbf24 0%, #ff8c00 100%) !important;
   color: #0f172a !important;
@@ -1482,7 +1433,7 @@ footer .text-accent-gradient {
   color: #000000 !important;
 }
 
-/* 6. Right 3D Poster Stack Side */
+
 .hero-3d-side {
   position: relative;
   width: 46%;
@@ -1515,7 +1466,7 @@ footer .text-accent-gradient {
   pointer-events: none;
 }
 
-/* 3D Dynamic Card States */
+
 .hero-3d-card.card-active {
   transform: translateX(0) translateZ(80px) rotateY(0deg) scale(1.1);
   opacity: 1;
@@ -1545,7 +1496,7 @@ footer .text-accent-gradient {
   pointer-events: none;
 }
 
-/* Card Hover micro-interactions */
+
 .hero-3d-card:hover:not(.card-active) {
   opacity: 0.85;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1559,7 +1510,7 @@ footer .text-accent-gradient {
   border-color: rgba(250, 204, 21, 0.9);
 }
 
-/* 7. Modern Slider Dots */
+
 .hero-dots-container {
   position: absolute;
   bottom: 40px;
@@ -1583,9 +1534,7 @@ footer .text-accent-gradient {
   background-color: #fbbf24;
 }
 
-/* ════════════════════════════════════════════
-   📱 MOBILE & TABLET MEDIA QUERIES (Hero)
-   ════════════════════════════════════════════ */
+
 
 @media (max-width: 1024px) {
   .hero-content-wrapper {
@@ -1643,7 +1592,7 @@ footer .text-accent-gradient {
     line-height: 1.5 !important;
   }
 
-  /* 3D stack shifts below the text */
+  
   .hero-3d-side {
     width: 100%;
     height: 200px;
@@ -1708,7 +1657,7 @@ footer .text-accent-gradient {
   }
 }
 
-/* Contact page icon box alignment fixes */
+
 .contact-icon-box {
   width: 52px;
   height: 52px;
@@ -1718,18 +1667,16 @@ footer .text-accent-gradient {
   flex-shrink: 0;
 }
 
-/* ════════════════════════════════════════════
-   🎬 MOVIE DETAIL PAGE — Visibility Fixes
-   ════════════════════════════════════════════ */
 
-/* Stronger dark background behind detail panel for text readability */
+
+
 .container .glass-panel.relative {
   background: rgba(9, 13, 22, 0.92) !important;
   backdrop-filter: blur(20px) saturate(120%);
   -webkit-backdrop-filter: blur(20px) saturate(120%);
 }
 
-/* Ensure all detail page text is bright and readable */
+
 .container .glass-panel .text-light,
 .container .glass-panel p {
   color: #e2e8f0 !important;
@@ -1743,7 +1690,7 @@ footer .text-accent-gradient {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* Detail page metadata items — ensure strong contrast */
+
 .details-metadata-item {
   background: rgba(255, 255, 255, 0.06) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -1758,12 +1705,12 @@ footer .text-accent-gradient {
   color: #94a3b8 !important;
 }
 
-/* Cast text must be visible */
+
 .container .glass-panel .text-light {
   color: #cbd5e1 !important;
 }
 
-/* Synopsis text — high contrast */
+
 .container .glass-panel .fs-5.lh-lg {
   color: #d1d5db !important;
   line-height: 1.8 !important;

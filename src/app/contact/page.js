@@ -13,30 +13,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function ContactPage() {
-  // Form fields states
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  // Error states
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Success Modal
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const validateForm = () => {
     const tempErrors = {};
-    
-    // Name validation
+
     if (!name.trim()) {
       tempErrors.name = "Full Name is required.";
     } else if (name.trim().length < 3) {
       tempErrors.name = "Name must be at least 3 characters long.";
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) {
       tempErrors.email = "Email address is required.";
@@ -44,7 +40,6 @@ export default function ContactPage() {
       tempErrors.email = "Please enter a valid email address (e.g. john@example.com).";
     }
 
-    // Phone validation
     const phoneRegex = /^\d{10}$/;
     if (!phone) {
       tempErrors.phone = "Phone number is required.";
@@ -52,7 +47,6 @@ export default function ContactPage() {
       tempErrors.phone = "Please enter a valid 10-digit phone number.";
     }
 
-    // Message validation
     if (!message.trim()) {
       tempErrors.message = "Message content is required.";
     } else if (message.trim().length < 15) {
@@ -69,7 +63,7 @@ export default function ContactPage() {
 
     if (validateForm()) {
       setShowSuccessModal(true);
-      // Clear form
+      
       setName("");
       setEmail("");
       setPhone("");
@@ -88,7 +82,7 @@ export default function ContactPage() {
       </div>
 
       <Row className="g-5">
-        {/* Contact Information Column */}
+        
         <Col xs={12} lg={5}>
           <div className="glass-panel p-4 h-100 d-flex flex-column justify-content-between">
             <div>
@@ -138,7 +132,6 @@ export default function ContactPage() {
           </div>
         </Col>
 
-        {/* Contact Form Column */}
         <Col xs={12} lg={7}>
           <div className="glass-panel p-4">
             <h3 className="fw-bold mb-4 text-warning">Send a Message</h3>
@@ -232,7 +225,6 @@ export default function ContactPage() {
         </Col>
       </Row>
 
-      {/* Success Modal */}
       <Modal 
         show={showSuccessModal} 
         onHide={() => setShowSuccessModal(false)} 

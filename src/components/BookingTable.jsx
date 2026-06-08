@@ -16,15 +16,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function BookingTable({ bookings, onEdit, onDelete }) {
-  // Search, Sort, Filter, and Pagination state
+  
   const [search, setSearch] = useState("");
   const [sortField, setSortField] = useState("name");
-  const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
+  const [sortOrder, setSortOrder] = useState("asc"); 
   const [filterGender, setFilterGender] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
-  // Sorting Handler
   const handleSort = (field) => {
     if (sortField === field) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -35,11 +34,9 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
     setCurrentPage(1);
   };
 
-  // Process data (Search, Filter, Sort)
   const processedBookings = useMemo(() => {
     let result = [...bookings];
 
-    // 1. Search
     if (search.trim() !== "") {
       const q = search.toLowerCase();
       result = result.filter(
@@ -52,12 +49,10 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
       );
     }
 
-    // 2. Filter by Gender
     if (filterGender !== "") {
       result = result.filter((b) => b.gender === filterGender);
     }
 
-    // 3. Sort
     result.sort((a, b) => {
       let valA = a[sortField] || "";
       let valB = b[sortField] || "";
@@ -73,7 +68,6 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
     return result;
   }, [bookings, search, sortField, sortOrder, filterGender]);
 
-  // Pagination
   const totalItems = processedBookings.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
@@ -123,9 +117,8 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
         </div>
       </div>
 
-      {/* Search & Filters */}
       <div className="row g-3 mb-4">
-        {/* Search */}
+        
         <div className="col-12 col-md-5">
           <InputGroup>
             <InputGroup.Text className="custom-form-control bg-transparent text-secondary border-end-0">
@@ -144,7 +137,6 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
           </InputGroup>
         </div>
 
-        {/* Gender Filter */}
         <div className="col-6 col-md-3">
           <Form.Select
             value={filterGender}
@@ -161,7 +153,6 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
           </Form.Select>
         </div>
 
-        {/* Clear Filters */}
         <div className="col-6 col-md-4 d-grid">
           <Button
             variant="outline-secondary"
@@ -178,7 +169,6 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
         </div>
       </div>
 
-      {/* Table grid */}
       <div className="custom-table-container">
         <Table responsive className="custom-table table-hover border-0 align-middle">
           <thead>
@@ -263,7 +253,6 @@ export default function BookingTable({ bookings, onEdit, onDelete }) {
         </Table>
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-3">
           <span className="small text-secondary">

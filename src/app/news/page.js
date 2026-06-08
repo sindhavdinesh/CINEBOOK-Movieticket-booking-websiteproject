@@ -74,7 +74,6 @@ export default function NewsPage() {
         <p className="text-secondary">Read the latest reviews, box office numbers, and production updates from the world of cinema.</p>
       </div>
 
-      {/* Featured Article Section */}
       <div className="glass-panel p-4 mb-5 relative overflow-hidden">
         <Row className="g-4 align-items-center">
           <Col xs={12} lg={6}>
@@ -117,7 +116,6 @@ export default function NewsPage() {
         </Row>
       </div>
 
-      {/* General News Grid */}
       <div className="mb-4">
         <h3 className="text-white fw-bold mb-4 d-flex align-items-center gap-2">
           <FontAwesomeIcon icon={faNewspaper} className="text-warning" />
@@ -163,7 +161,6 @@ export default function NewsPage() {
         </Row>
       </div>
 
-      {/* Article Detail Modal */}
       {selectedArticle && (
         <Modal 
           show={!!selectedArticle} 

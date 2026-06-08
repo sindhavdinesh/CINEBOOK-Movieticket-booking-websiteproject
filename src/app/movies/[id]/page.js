@@ -17,7 +17,6 @@ import {
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 
-// Data utilities
 import { getMovieById, getMovies, seedDatabase } from "@/data/movieData";
 
 export default function MovieDetails() {
@@ -29,7 +28,6 @@ export default function MovieDetails() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Modal Control
   const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
@@ -72,7 +70,6 @@ export default function MovieDetails() {
 
   return (
     <div className="container py-3 animate-fade-in">
-      {/* Back Button — uses browser history so it always works */}
       <div className="mb-4">
         <Button 
           variant="outline-light" 
@@ -84,9 +81,7 @@ export default function MovieDetails() {
         </Button>
       </div>
 
-      {/* Main Details Panel */}
       <div className="movie-detail-panel glass-panel p-4 p-md-5 mb-5" style={{ position: "relative", overflow: "hidden" }}>
-        {/* Blurred backdrop background — decorative only */}
         <div 
           style={{
             position: "absolute",
@@ -104,7 +99,6 @@ export default function MovieDetails() {
           }}
         />
         
-        {/* Dark scrim overlay to guarantee text readability */}
         <div 
           style={{
             position: "absolute",
@@ -119,7 +113,6 @@ export default function MovieDetails() {
         />
 
         <Row className="g-4 g-md-5" style={{ position: "relative", zIndex: 2 }}>
-          {/* Poster Column */}
           <Col xs={12} md={4}>
             <div className="detail-poster-wrapper rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-20" style={{ aspectRatio: "2/3" }}>
               <img
@@ -132,7 +125,6 @@ export default function MovieDetails() {
             </div>
           </Col>
 
-          {/* Info Details Column */}
           <Col xs={12} md={8} className="d-flex flex-column justify-content-between">
             <div>
               <div className="d-flex flex-wrap align-items-center gap-2 mb-3">
@@ -145,12 +137,10 @@ export default function MovieDetails() {
                 {movie.title}
               </h1>
 
-              {/* Description */}
               <p className="fs-5 mb-4" style={{ color: "#d1d5db", lineHeight: "1.8", opacity: 1, textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}>
                 {movie.synopsis}
               </p>
 
-              {/* Metadata Grid */}
               <Row className="g-3 mb-4">
                 <Col xs={6} sm={3}>
                   <div className="details-metadata-item">
@@ -190,7 +180,6 @@ export default function MovieDetails() {
                 </Col>
               </Row>
 
-              {/* Cast */}
               {movie.cast && (
                 <div className="mb-4">
                   <span className="small d-block mb-1" style={{ color: "#94a3b8" }}>Cast:</span>
@@ -199,7 +188,6 @@ export default function MovieDetails() {
               )}
             </div>
 
-            {/* Action Bar */}
             <div className="pt-3 border-top border-secondary border-opacity-10 d-flex flex-wrap gap-3">
               <Link href={`/ticket?movieId=${movie.id}`} passHref>
                 <Button className="btn-cinema-primary px-4 py-3 fs-5 fw-bold">
@@ -218,7 +206,6 @@ export default function MovieDetails() {
         </Row>
       </div>
 
-      {/* Recommendations Panel */}
       {recommendations.length > 0 && (
         <div className="mb-4">
           <h3 className="text-gradient fw-bold mb-4">Recommended {movie.genre} Movies</h3>
@@ -257,7 +244,6 @@ export default function MovieDetails() {
         </div>
       )}
 
-      {/* Trailer Modal */}
       {movie.trailerUrl && (
         <Modal 
           show={showTrailer} 
