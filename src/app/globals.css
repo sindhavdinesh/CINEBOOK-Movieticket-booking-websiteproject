@@ -1370,7 +1370,7 @@ footer .text-accent-gradient {
   opacity: 0;
   z-index: 0;
   filter: blur(6px); /* Cinematic blur effect! */
-  transition: opacity 0.6s ease-in-out, transform 4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, transform 3s ease-in-out;
   transform: scale(1.04); /* Scaled up to hide blurred edge bleed */
   pointer-events: none;
 }
@@ -1431,7 +1431,7 @@ footer .text-accent-gradient {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  animation: heroTextReveal 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: heroTextReveal 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes heroTextReveal {
@@ -1504,7 +1504,7 @@ footer .text-accent-gradient {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s, border-color 0.6s, box-shadow 0.6s;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s, border-color 0.4s, box-shadow 0.4s;
   -webkit-box-reflect: below 8px linear-gradient(transparent, transparent 65%, rgba(0, 0, 0, 0.25));
 }
 
@@ -1716,6 +1716,58 @@ footer .text-accent-gradient {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════
+   🎬 MOVIE DETAIL PAGE — Visibility Fixes
+   ════════════════════════════════════════════ */
+
+/* Stronger dark background behind detail panel for text readability */
+.container .glass-panel.relative {
+  background: rgba(9, 13, 22, 0.92) !important;
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+}
+
+/* Ensure all detail page text is bright and readable */
+.container .glass-panel .text-light,
+.container .glass-panel p {
+  color: #e2e8f0 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.container .glass-panel .text-white,
+.container .glass-panel h1,
+.container .glass-panel .card-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Detail page metadata items — ensure strong contrast */
+.details-metadata-item {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.details-metadata-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+}
+
+.details-metadata-label {
+  color: #94a3b8 !important;
+}
+
+/* Cast text must be visible */
+.container .glass-panel .text-light {
+  color: #cbd5e1 !important;
+}
+
+/* Synopsis text — high contrast */
+.container .glass-panel .fs-5.lh-lg {
+  color: #d1d5db !important;
+  line-height: 1.8 !important;
+  font-weight: 400;
 }
 
 
