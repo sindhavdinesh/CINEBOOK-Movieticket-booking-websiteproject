@@ -5,7 +5,7 @@
 
 
 :root {
-  --cinema-bg: #0f172a;
+  --cinema-bg: #121a2b;
   --cinema-bg-secondary: #1e293b;
   --cinema-bg-gradient: radial-gradient(ellipse at 50% 0%, #1e293b 0%, #0f172a 75%, #090d16 100%);
   --cinema-card-bg: rgba(30, 41, 59, 0.7);
@@ -933,6 +933,7 @@ a:hover {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
