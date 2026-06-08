@@ -24,7 +24,7 @@
     <img src="https://img.shields.io/badge/GitHub_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo" />
   </a>
   &nbsp;&nbsp;
-  <a href="https://cinebook-movieticket-booking-websiteproject.vercel.app">
+  <a href="https://cinebook-movieticket-booking-websit.vercel.app/">
     <img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
   </a>
 </p>
