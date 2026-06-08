@@ -33,15 +33,16 @@ export default function Home() {
     return movies.filter(m => m.featured);
   }, [movies]);
 
+  // Auto-play interval for custom 3D hero slider
   useEffect(() => {
-    if (isHovered || featuredMovies.length <= 1) return;
+    if (featuredMovies.length <= 1) return;
     
     const intervalId = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % featuredMovies.length);
-    }, 1500);
+    }, 500);
 
     return () => clearInterval(intervalId);
-  }, [isHovered, featuredMovies.length]);
+  }, [featuredMovies.length]);
 
   const nowShowing = useMemo(() => {
     return movies.slice(0, 4);
@@ -110,11 +111,7 @@ export default function Home() {
   return (
     <div className="homepage-wrapper animate-fade-in">
       {featuredMovies.length > 0 && (
-        <div 
-          className="hero-slider-section"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="hero-slider-section">
           <div className="hero-bg-container">
             {featuredMovies.map((movie, idx) => (
               <img 
