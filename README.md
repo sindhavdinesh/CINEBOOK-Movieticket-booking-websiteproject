@@ -350,8 +350,10 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ## 🙋‍♂️ Author
 
+Sindhav Dinesh
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Built_with_❤️_by-YOUR_NAME-facc15?style=for-the-badge&labelColor=0f172a" alt="Author" />
+  <img src="https://img.shields.io/badge/Built_with_❤️_by-Sindhav Dinesh-facc15?style=for-the-badge&labelColor=0f172a" alt="Author" />
 </p>
 
 <p align="center">
