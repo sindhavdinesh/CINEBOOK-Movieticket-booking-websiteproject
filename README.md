@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=3000&pause=1000&color=FACC15&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=%F0%9F%8E%AC+CineBook+%E2%80%94+Premium+Cinema+Platform" alt="CineBook Banner" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=3000&pause=1000&color=FACC15&center=true&vCenter=true&multiline=true&repeat=true&width=1000&height=100&lines=%F0%9F%8E%AC+CineBook+%E2%80%94+Premium+Cinema+Platform" alt="CineBook Banner" />
 </p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
