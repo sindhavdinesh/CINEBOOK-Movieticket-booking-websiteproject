@@ -24,7 +24,7 @@ export default function BookingFormModal({ show, handleClose, onSave, bookingToE
     if (bookingToEdit) {
       setName(bookingToEdit.name || "");
       setEmail(bookingToEdit.email || "");
-      setPassword(bookingToEdit.password || "******"); // Mock edit password
+      setPassword(bookingToEdit.password || "******"); 
       setPhone(bookingToEdit.phone || "");
       setGender(bookingToEdit.gender || "Male");
       setFavoriteGenre(bookingToEdit.favoriteGenre || "");
