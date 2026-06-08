@@ -27,14 +27,14 @@
 ## 📽️ Project Demo Video
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1iX7gjge_APkAW0Cx68i9OelvP4brM5Dj/view?usp=sharing">
+  <a href="https://drive.google.com/file/d/1z9vEGpcjdoUxukTJf7ubAxCaVOojx6D-/view?usp=sharing">
     <img src="https://img.shields.io/badge/%E2%96%B6%EF%B8%8F_Watch_Full_Demo-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white&labelColor=0F172A" alt="Watch Demo Video" />
   </a>
 </p>
 
 > **👆 Click the button above to watch the full project walkthrough on Google Drive!**
 >
-> _Replace `https://drive.google.com/file/d/1iX7gjge_APkAW0Cx68i9OelvP4brM5Dj/view?usp=sharing` Drive link._
+> _Replace `https://drive.google.com/file/d/1z9vEGpcjdoUxukTJf7ubAxCaVOojx6D-/view?usp=sharing` Drive link._
 
 ---
 
