@@ -15,8 +15,18 @@
   <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License" />
   <img src="https://img.shields.io/badge/PRs-Welcome-blue?style=flat-square" alt="PRs Welcome" />
-  <img src="https://img.shields.io/github/stars/YOUR_USERNAME/cinebook?style=flat-square&color=gold" alt="Stars" />
-  <img src="https://img.shields.io/github/forks/YOUR_USERNAME/cinebook?style=flat-square&color=teal" alt="Forks" />
+  <img src="https://img.shields.io/github/stars/sindhavdinesh/CINEBOOK-Movieticket-booking-websiteproject?style=flat-square&color=gold" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/sindhavdinesh/CINEBOOK-Movieticket-booking-websiteproject?style=flat-square&color=teal" alt="Forks" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/sindhavdinesh/CINEBOOK-Movieticket-booking-websiteproject">
+    <img src="https://img.shields.io/badge/GitHub_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://cinebook-movieticket-booking-websiteproject.vercel.app">
+    <img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
 </p>
 
 <p align="center">
@@ -214,10 +224,10 @@ Make sure you have the following installed:
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/YOUR_USERNAME/cinebook.git
+git clone https://github.com/sindhavdinesh/CINEBOOK-Movieticket-booking-websiteproject.git
 
 # 2️⃣ Navigate into the project
-cd cinebook
+cd CINEBOOK-Movieticket-booking-websiteproject
 
 # 3️⃣ Install dependencies
 npm install
@@ -359,7 +369,7 @@ Sindhav Dinesh
 
 <p align="center">
   <!-- 🔗 Replace the # with your actual profile URLs -->
-  <a href="#">
+  <a href="https://github.com/sindhavdinesh">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>&nbsp;
   <a href="#">

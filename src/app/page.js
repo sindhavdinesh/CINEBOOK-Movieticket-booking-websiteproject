@@ -39,7 +39,7 @@ export default function Home() {
     
     const intervalId = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % featuredMovies.length);
-    }, 500);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [featuredMovies.length]);

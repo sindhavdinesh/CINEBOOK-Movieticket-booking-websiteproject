@@ -252,37 +252,35 @@ function TicketBookingContent() {
 
             <div className="cinema-screen" />
             <div className="cinema-screen-text">SCREEN THIS WAY</div>
+            
+            <div className="seat-layout-scroll-wrapper w-100 overflow-x-auto py-2">
+              <div className="d-inline-block" style={{ minWidth: "310px" }}>
+                {rows.map((row) => (
+                  <div key={row} className="d-flex align-items-center gap-2 gap-sm-3 mb-2 justify-content-center">
+                    <span className="fw-bold text-secondary small text-center" style={{ width: "16px", display: "inline-block" }}>{row}</span>
+                    <div className="d-flex gap-1.5 gap-sm-2">
+                      {columns.map((col) => {
+                        const seatId = `${row}${col}`;
+                        const isOccupied = occupiedSeats.includes(seatId);
+                        const isSelected = selectedSeats.includes(seatId);
+                        const isVIP = row === "F";
 
-            <div className="d-inline-block">
-              {rows.map((row) => (
-                <div key={row} className="d-flex align-items-center gap-3 mb-2 justify-content-center">
-                  <span className="fw-bold text-secondary small w-10">{row}</span>
-                  <div className="d-flex gap-2">
-                    {columns.map((col) => {
-                      const seatId = `${row}${col}`;
-                      const isOccupied = occupiedSeats.includes(seatId);
-                      const isSelected = selectedSeats.includes(seatId);
-                      const isVIP = row === "F";
-
-                      return (
-                        <div
-                          key={seatId}
-                          onClick={() => handleSeatClick(seatId)}
-                          className={`seat-item ${isOccupied ? "occupied" : ""} ${isSelected ? "selected" : ""} ${isVIP ? "vip" : ""}`}
-                          style={{
-                            width: "35px",
-                            height: "35px",
-                          }}
-                          title={isOccupied ? "Occupied" : `Seat ${seatId} - $${isVIP ? 20 : 12}`}
-                        >
-                          {col}
-                        </div>
-                      );
-                    })}
+                        return (
+                          <div
+                            key={seatId}
+                            onClick={() => handleSeatClick(seatId)}
+                            className={`seat-item-custom ${isOccupied ? "occupied" : ""} ${isSelected ? "selected" : ""} ${isVIP ? "vip" : ""}`}
+                            title={isOccupied ? "Occupied" : `Seat ${seatId} - $${isVIP ? 20 : 12}`}
+                          >
+                            {col}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <span className="fw-bold text-secondary small text-center" style={{ width: "16px", display: "inline-block" }}>{row}</span>
                   </div>
-                  <span className="fw-bold text-secondary small w-10">{row}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </Col>
